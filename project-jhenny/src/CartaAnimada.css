@@ -1,67 +1,94 @@
 /* Garante que a carta fique no centro da tela */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #f5f5f5;
-  }
-  
-  /* Configuração da carta */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100vh; /* Faz a altura ocupar toda a altura da tela */
+  width: 100vw; /* Faz a largura ocupar toda a largura da tela */
+  background-color: #f5f5f5;
+}
+
+/* Configuração da carta */
+.carta {
+  width: 90%;
+  max-width: 350px; /* Aumentado para dar mais espaço */
+  height: 500px; /* Aumentando a altura para acomodar o texto */
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center; /* Garante que o conteúdo da carta esteja centralizado */
+  align-items: center; /* Garante que o conteúdo da carta esteja centralizado */
+}
+
+/* Estilização da frente e do verso */
+.carta div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px; /* Aumentei o padding para dar mais espaço */
+  overflow-y: auto; /* Para garantir que o texto não ultrapasse a carta */
+}
+
+/* Frente da carta */
+.frente {
+  background-color: #ffcc00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+/* Verso da carta */
+.verso {
+  background-color: #ff5733;
+  color: white;
+  transform: rotateX(180deg);
+  padding: 30px; /* Aumentei o padding para o texto ficar mais espaçado */
+  font-size: 1.1rem; /* Ajustando o tamanho da fonte */
+  line-height: 1.5; /* Melhorando o espaçamento entre linhas */
+}
+
+/* Estilização do texto */
+.mensagem {
+  font-size: 1.1rem; /* Ajuste do tamanho da fonte para caber melhor */
+  line-height: 1.6;
+  word-wrap: break-word; /* Para garantir que o texto não ultrapasse a largura */
+  margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   .carta {
-    width: 90%; /* Usa 90% da largura da tela */
-    max-width: 280px; /* Máximo de 280px para desktop */
-    height: auto;
-    aspect-ratio: 4 / 3; /* Mantém a proporção de 4:3 */
-    position: relative;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    perspective: 1000px;
+    max-width: 85%;
+    height: 450px;
   }
-  
-  /* Estilização da frente e do verso */
+
   .carta div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    font-size: 1.1rem;
     padding: 15px;
   }
-  
-  /* Frente da carta */
-  .frente {
-    background-color: #ffcc00;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .carta {
+    max-width: 90%;
+    height: 400px;
   }
-  
-  /* Verso da carta */
-  .verso {
-    background-color: #ff5733;
-    color: white;
-    transform: rotateX(180deg);
+
+  .carta div {
+    font-size: 1rem;
+    padding: 10px;
   }
-  
-  /* 🔹 Responsividade para telas menores */
-  @media (max-width: 480px) {
-    .carta {
-      max-width: 90%; /* Em telas menores, ocupa quase toda a largura */
-    }
-  
-    .carta div {
-      font-size: 1rem; /* Ajusta o tamanho da fonte no celular */
-      padding: 10px;
-    }
-  }
-  
+}
