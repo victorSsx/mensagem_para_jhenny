@@ -16,11 +16,24 @@ export default function CartaAnimada() {
         transition={{ duration: 0.6 }}
         onClick={() => setAberta(!aberta)}
       >
-        <div className="frente">🎁 Clique para abrir</div>
+        <div className="frente">🎁 Aperta essa bagaça</div>
         <div className="verso">
-          <p>🎉 Feliz Aniversário! 🎂</p>
-          <p>Que seu dia seja incrível! 🥳</p>
-          <p>Desejo a você muita felicidade, amor, e sucesso em tudo o que fizer. Aproveite seu dia com muito carinho e diversão!</p>
+          <p>Minha querida Jhenny, 💖</p>
+          <p>"
+
+            Hoje é um dia tão especial, e eu não poderia deixar de te desejar um Feliz Aniversário cheio de amor, alegria e momentos incríveis. 🌟
+
+            Desde que te conheci, tudo parece ter ficado mais leve e mais bonito. Seu sorriso ilumina os meus dias, e ter você na minha vida tem sido uma das maiores bênçãos. 💫
+
+            Eu desejo que o seu ano seja repleto de felicidade, conquistas e que você tenha ao seu lado sempre pessoas que te amam, assim como eu. Que seus sonhos se tornem realidade, e que a cada novo dia você se sinta mais feliz e realizada.
+
+            Você é uma pessoa maravilhosa, e eu sou muito grato por te conhecer. Que essa nova fase da sua vida seja ainda mais maravilhosa do que a anterior. 💕 Estou ansioso para viver mais momentos incríveis com você!
+
+            Parabéns, Jhenny! Te desejo tudo de melhor no seu aniversário e sempre! 🎉🎂🥳_
+
+            "_</p>
+            <p>Com todo o meu carinho,
+            [Seu amigo putão]</p>
         </div>
       </motion.div>
     </div>

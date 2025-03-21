@@ -1,94 +1,150 @@
-/* Garante que a carta fique no centro da tela */
+/* Garante que a carta fique centralizada e ocupe 100% da tela */
 .container {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  height: 100vh; /* Faz a altura ocupar toda a altura da tela */
-  width: 100vw; /* Faz a largura ocupar toda a largura da tela */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  width: 100vw; /* Ocupa toda a largura da tela */
   background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Impede rolagem extra */
 }
 
 /* Configuração da carta */
 .carta {
-  width: 90%;
-  max-width: 350px; /* Aumentado para dar mais espaço */
-  height: 500px; /* Aumentando a altura para acomodar o texto */
+  width: 80%;  /* Ocupa 80% da largura da tela */
+  height: 80%; /* Ocupa 80% da altura da tela */
   position: relative;
   transform-style: preserve-3d;
   cursor: pointer;
   perspective: 1000px;
   display: flex;
-  justify-content: center; /* Garante que o conteúdo da carta esteja centralizado */
-  align-items: center; /* Garante que o conteúdo da carta esteja centralizado */
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.6s ease;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px; /* Adicionando borda arredondada */
 }
 
 /* Estilização da frente e do verso */
 .carta div {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 110vh;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.8rem; /* Reduzindo um pouco o tamanho da fonte */
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 30px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  padding: 20px; /* Aumentei o padding para dar mais espaço */
-  overflow-y: auto; /* Para garantir que o texto não ultrapasse a carta */
+  padding: 20px;
+  overflow-y: auto;
 }
 
 /* Frente da carta */
+/* Frente da carta */
 .frente {
-  background-color: #ffcc00;
+  background-color: #7206caf6;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  transition: transform 0.6s ease;
+  font-size: 6rem; /* Aumentando o tamanho do emoji */
+}
+
+
+/* Frente: Tamanho do presente */
+.frente h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+/* Animação do ícone de presente */
+.frente .presente {
+  font-size: 3.5rem; /* Ajustando um pouco menor */
+  margin-right: 10px;
+  animation: scale-up 1s infinite alternate;
+}
+
+/* Animação de bounce para o presente */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animação de escala para o ícone do presente */
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
 }
 
 /* Verso da carta */
 .verso {
-  background-color: #ff5733;
+  background-color: #7807d4cb;
   color: white;
   transform: rotateX(180deg);
-  padding: 30px; /* Aumentei o padding para o texto ficar mais espaçado */
-  font-size: 1.1rem; /* Ajustando o tamanho da fonte */
-  line-height: 1.5; /* Melhorando o espaçamento entre linhas */
+  padding: 25px;
+  font-size: 1.2rem; /* Reduzindo um pouco para melhor encaixe */
+  line-height: 1.5;
+  overflow-y: auto;
 }
 
 /* Estilização do texto */
 .mensagem {
-  font-size: 1.1rem; /* Ajuste do tamanho da fonte para caber melhor */
+  font-size: 1.2rem; /* Ajuste fino do tamanho da fonte */
   line-height: 1.6;
-  word-wrap: break-word; /* Para garantir que o texto não ultrapasse a largura */
+  word-wrap: break-word;
   margin-top: 10px;
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
   .carta {
-    max-width: 85%;
-    height: 450px;
+    width: 90%;
+    height: 75%;
   }
 
   .carta div {
-    font-size: 1.1rem;
-    padding: 15px;
+    font-size: 1.3rem;
+    padding: 18px;
   }
 }
 
 @media (max-width: 480px) {
   .carta {
-    max-width: 90%;
-    height: 400px;
+    width: 95%;
+    height: 80%;
   }
 
   .carta div {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+
+  .mensagem {
     font-size: 1rem;
-    padding: 10px;
+    line-height: 1.4;
   }
 }
+
